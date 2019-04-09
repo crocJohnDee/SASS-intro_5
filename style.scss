@@ -1,0 +1,52 @@
+body {
+    background: rgb(40,40,40);
+}
+
+.container {
+    width: 1000px;
+    background: white;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 25px 0;
+}
+
+@mixin ball($bg-color){
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 25px;
+    background-color: $bg-color;
+    box-shadow: inset 9px 0px 12px 10px rgba(0, 0, 0, 0.75);
+}
+
+@mixin animate($duration) {
+    animation: roll $duration ease-in-out infinite;
+}
+
+@keyframes roll {
+    0% {
+        transform: translateX(-25px) rotate(0);
+    }
+    50% { 
+          transform: translateX(925px) rotate(360deg);
+    }
+    100% { 
+          transform: translateX(-25px) rotate(0deg);
+    }
+}
+
+.ball1{
+    @include ball(red);
+    @include animate(5s);
+}
+
+.ball2{
+    @include ball(green);
+    @include animate(6s);
+}
+
+.ball3{
+    @include ball(blue);
+    @include animate(7s);
+}
+
